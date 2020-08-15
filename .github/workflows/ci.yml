@@ -1,0 +1,29 @@
+name: CI
+# This workflow is triggered on pushes to the repository.
+on: [push]
+
+jobs:
+  lint:
+    # Job name is Lint
+    name: Lint
+    # This job runs on Linux
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      # Installs Node.
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      # Install NPM packages.
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      # Check formatting and linting.
+      - name: Prettier check
+        run: yarn prettier:check
+      - name: ESLint check
+        run: yarn eslint:check
+      - name: TypeScript check
+        run: yarn typescript
