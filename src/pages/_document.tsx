@@ -15,6 +15,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="stylesheet" href="https://rsms.me/inter/inter.css" crossOrigin="true" />
+          <meta name="Description" content="We sell plates." />
         </Head>
         <body>
           <Main />
