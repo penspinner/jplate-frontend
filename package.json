@@ -7,7 +7,8 @@
     "dev": "next dev",
     "eslint:check": "eslint --color './**/*.{tsx,ts,jsx,js}'",
     "prettier:check": "prettier './**/*.{tsx,ts,jsx,js}' -c",
-    "start": "next start"
+    "start": "next start",
+    "typescript": "tsc"
   },
   "dependencies": {
     "next": "9.5.2",
