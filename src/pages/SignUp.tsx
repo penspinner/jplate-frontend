@@ -1,11 +1,11 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Axios from 'axios'
-import { useHistory } from 'react-router-dom'
 
 const SignUp = () => {
-  const history = useHistory()
+  const router = useRouter()
   const formRef = useRef(null)
   const passwordRef = useRef(null)
   const [passwordMatch, setPasswordMatch] = useState(false)
@@ -15,12 +15,12 @@ const SignUp = () => {
     const userData = formRef.current
     if (passwordMatch === true) {
       try {
-        await Axios.post('/users', {
+        await Axios.post('http://localhost:8092/users', {
           firstName: userData[0].value,
           lastName: userData[1].value,
           email: userData[2].value,
           password: userData[4].value,
-        }).then(() => history.push('/'))
+        }).then(() => router.push('/'))
       } catch (err) {
         console.error(err)
       }

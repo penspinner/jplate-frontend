@@ -13,7 +13,7 @@ const UserDataForm = (props: {
   async function handleSubmit() {
     event.preventDefault()
     try {
-      await Axios.post('/submitOrder', {
+      await Axios.post('http://localhost:8092/submitOrder', {
         name: formRef.current[0].value,
         email: formRef.current[1].value,
         shippingAddress: formRef.current[2].value,

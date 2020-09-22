@@ -1,10 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { AuthContext } from '../pages/_app'
 
 const Header = (props: any) => {
   const [auth, setAuth] = useContext(AuthContext)
-  const [cookie, setCookie] = React.useState(null)
+  const [cookie, setCookie] = useState(null)
+
   let sum = 0
   if (props.cart) {
     props.cart.map((item: { userSelectedQuantity: number }) => {
@@ -14,12 +15,11 @@ const Header = (props: any) => {
 
   function handleSignOut() {
     setAuth(false)
-
     window.localStorage.removeItem('cookie')
     location.reload()
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     setCookie(window.localStorage.cookie)
   }, [])
 
@@ -45,7 +45,7 @@ const Header = (props: any) => {
         {auth || cookie ? (
           <div className="linkItem">
             <h2>
-              <Link href="/Profile">Profile</Link>
+              <Link href="/UserProfile">Profile</Link>
             </h2>
           </div>
         ) : (
@@ -58,9 +58,11 @@ const Header = (props: any) => {
         {auth || cookie ? (
           <div className="linkItem">
             <h2>
-              {/* <Link href="/" onClick={handleSignOut}>
-                Sign out
-              </Link> */}
+              <Link href="/">
+                <button type="button" onClick={handleSignOut}>
+                  Sign out
+                </button>
+              </Link>
             </h2>
           </div>
         ) : (

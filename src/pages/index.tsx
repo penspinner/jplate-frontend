@@ -25,7 +25,7 @@ const Index = () => {
 
     async function dataFetch() {
       try {
-        const response = await Axios.get('/getPlates')
+        const response = await Axios.get('http://localhost:8092/getPlates')
         if (!effectRan) {
           setPlates(response.data)
         }

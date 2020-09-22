@@ -7,15 +7,18 @@ import EditUserProfile from '../components/EditUserProfile'
 import OrderHistoryItem from '../components/OrderHistoryItem'
 
 const UserProfile = () => {
-  const user = JSON.parse(window.localStorage.getItem('cookie'))
+  const [localStorage, setLocalStorage] = useState(null)
+  const user = JSON.parse(localStorage.getItem('cookie'))
   const [orderHistory, setOrderHistory] = useState([])
 
   // let mount = false
   useEffect(() => {
     // mount = true
     async function dataFetch() {
+      setLocalStorage(window.localStorage)
       try {
-        const orderHistoryFetch = (await Axios.get(`/getOrders/${user.email}`)).data
+        const orderHistoryFetch = (await Axios.get(`http://localhost:8092/getOrders/${user.email}`))
+          .data
         setOrderHistory(orderHistoryFetch)
       } catch (err) {
         console.error(err)

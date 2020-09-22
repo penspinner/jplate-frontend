@@ -1,5 +1,6 @@
 import React, { useState, useRef, useContext } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useHistory } from 'react-router-dom'
 import { AuthContext } from './_app'
 import Header from '../components/Header'
@@ -8,6 +9,7 @@ import Axios from 'axios'
 
 const SignIn = () => {
   const [, setAuth] = useContext(AuthContext)
+  const router = useRouter()
   const [checkBox, setCheckBox] = useState(false)
   const formRef = useRef(null)
   const history = useHistory()
@@ -23,13 +25,13 @@ const SignIn = () => {
       password: formRef.current[1].value,
     }
     try {
-      const login = await Axios.post('/login', userData)
+      const login = await Axios.post('http://localhost:8092/login', userData)
       if (login) {
         if (!window.localStorage.firstName) {
           setAuth(true)
           window.localStorage.setItem('cookie', JSON.stringify(login.data))
         }
-        history.push('/profile')
+        router.push('/UserProfile')
       } else {
         console.log('login UN-successful')
       }
