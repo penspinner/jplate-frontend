@@ -15,7 +15,7 @@ const SignUp = () => {
     const userData = formRef.current
     if (passwordMatch === true) {
       try {
-        await Axios.post('http://localhost:8092/users', {
+        await Axios.post('http://localhost:4000/users', {
           firstName: userData[0].value,
           lastName: userData[1].value,
           email: userData[2].value,

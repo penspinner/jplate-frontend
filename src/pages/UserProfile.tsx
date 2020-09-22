@@ -17,7 +17,7 @@ const UserProfile = () => {
     async function dataFetch() {
       setLocalStorage(window.localStorage)
       try {
-        const orderHistoryFetch = (await Axios.get(`http://localhost:8092/getOrders/${user.email}`))
+        const orderHistoryFetch = (await Axios.get(`http://localhost:4000/getOrders/${user.email}`))
           .data
         setOrderHistory(orderHistoryFetch)
       } catch (err) {

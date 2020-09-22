@@ -6,7 +6,7 @@ const EditUserProfile = () => {
   const formRef = useRef(null)
 
   async function handleSubmit() {
-    Axios.patch('http://localhost:8092/resetPassword', {
+    Axios.patch('http://localhost:4000/resetPassword', {
       userId: user.userId,
       newPassword: formRef.current.password.value,
     })
