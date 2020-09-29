@@ -7,15 +7,20 @@ import EditUserProfile from '../components/EditUserProfile'
 import OrderHistoryItem from '../components/OrderHistoryItem'
 
 const UserProfile = () => {
+  const [cookie, setCookie] = useState(null)
   const [localStorage, setLocalStorage] = useState(null)
-  const user = JSON.parse(localStorage.getItem('cookie'))
+  const user = JSON.parse(window.localStorage.getItem('cookie'))
   const [orderHistory, setOrderHistory] = useState([])
+
+  useEffect(() => {
+    setLocalStorage(window.localStorage)
+    setCookie(window.localStorage.cookie)
+  }, [])
 
   // let mount = false
   useEffect(() => {
     // mount = true
     async function dataFetch() {
-      setLocalStorage(window.localStorage)
       try {
         const orderHistoryFetch = (await Axios.get(`http://localhost:4000/getOrders/${user.email}`))
           .data
@@ -37,36 +42,36 @@ const UserProfile = () => {
       {!user ? (
         <Redirect to="/" />
       ) : (
-        <div>
-          <Header />
-          <div className="welcomeText">Hello {user.firstName}!</div>
-          <div className="pastOrdersContainer">
-            <div className="pastOrderHeader">Past Orders</div>
-            {orderHistory.map((order) => {
-              return <OrderHistoryItem key={Math.random()} order={order} />
-            })}
-          </div>
+          <div>
+            <Header />
+            <div className="welcomeText">Hello {user.firstName}!</div>
+            <div className="pastOrdersContainer">
+              <div className="pastOrderHeader">Past Orders</div>
+              {orderHistory.map((order) => {
+                return <OrderHistoryItem key={Math.random()} order={order} />
+              })}
+            </div>
 
-          {!edit ? (
-            <form className="infoCard">
-              First name, Last name:
-              <div className="userInfo">
-                {user.firstName} {user.lastName}
-              </div>
+            {!edit ? (
+              <form className="infoCard">
+                First name, Last name:
+                <div className="userInfo">
+                  {user.firstName} {user.lastName}
+                </div>
               Email:
-              <div className="userInfo">{user.email}</div>
+                <div className="userInfo">{user.email}</div>
               Password:
-              <div className="userInfo"> *******</div>
-              <button type="submit" className="signInSubmit" onClick={handleSubmit}>
-                Change password
+                <div className="userInfo"> *******</div>
+                <button type="submit" className="signInSubmit" onClick={handleSubmit}>
+                  Change password
               </button>
-            </form>
-          ) : (
-            <EditUserProfile />
-          )}
-          <Footer />
-        </div>
-      )}
+              </form>
+            ) : (
+                <EditUserProfile />
+              )}
+            <Footer />
+          </div>
+        )}
     </>
   )
 }
