@@ -24,51 +24,33 @@ const Header = (props: any) => {
   }, [])
 
   return (
-    <div id="header">
-      <h1>
-        <Link href="/">JPlate</Link>
-      </h1>
-      <div className="headerLinks">
-        <div className="linkItem">
-          <img
-            id="headerCart"
-            src="https://image.flaticon.com/icons/svg/25/25619.svg"
-            onClick={props.handleShowCart}
-          />
-          {sum >= 1 ? sum : ''}
-        </div>
-        <div className="linkItem">
-          <h2>
-            <Link href="/About">About</Link>
-          </h2>
-        </div>
-        {auth || cookie ? (
-          <div className="linkItem">
-            <h2>
-              <Link href="/UserProfile">Profile</Link>
-            </h2>
-          </div>
-        ) : (
-          <div className="linkItem">
-            <h2>
-              <Link href="/SignIn">Sign in</Link>
-            </h2>
-          </div>
-        )}
-        {auth || cookie ? (
-          <div className="linkItem">
-            <h2>
-              <Link href="/">
-                <button type="button" onClick={handleSignOut}>
-                  Sign out
-                </button>
-              </Link>
-            </h2>
-          </div>
-        ) : (
-          ''
-        )}
-      </div>
+    // <div className="bg-white flex justify-between border-b items-center">
+    <div className="grid gap-5 grid-cols-4 items-center">
+      <Link href="/">
+        <img src="/jplate.ico" style={{ height: '100px' }} />
+      </Link>
+      {sum >= 1 ? sum : ''}
+      <Link href="/About">About</Link>
+      {auth || cookie ? (
+        <Link href="/UserProfile">Profile</Link>
+      ) : (
+        <Link href="/SignIn">Sign in</Link>
+      )}
+      {auth || cookie ? (
+        <Link href="/">
+          <button type="button" onClick={handleSignOut}>
+            Sign out
+          </button>
+        </Link>
+      ) : (
+        ''
+      )}
+      <img
+        id="headerCart"
+        style={{ height: '50px' }}
+        src="https://image.flaticon.com/icons/svg/25/25619.svg"
+        onClick={props.handleShowCart}
+      />
     </div>
   )
 }

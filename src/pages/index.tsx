@@ -25,7 +25,7 @@ const Index = () => {
 
     async function dataFetch() {
       try {
-        const response = await Axios.get('http://localhost:4000/getPlates')
+        const response = await Axios.get('http://localhost:8080/api/getPlates')
         if (!effectRan) {
           setPlates(response.data)
         }
@@ -38,7 +38,7 @@ const Index = () => {
   }, [])
 
   return (
-    <>
+    <div className="static">
       <Header cart={cart} handleShowCart={handleShowCart} />
       <div className="plateContainer">
         {showCart ? <Cart cart={cart} handleSetCart={handleSetCart} /> : ''}
@@ -56,7 +56,7 @@ const Index = () => {
           : ''}
       </div>
       <Footer />
-    </>
+    </div>
   )
 }
 

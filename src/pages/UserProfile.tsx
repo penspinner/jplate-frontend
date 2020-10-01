@@ -22,8 +22,9 @@ const UserProfile = () => {
     // mount = true
     async function dataFetch() {
       try {
-        const orderHistoryFetch = (await Axios.get(`http://localhost:4000/getOrders/${user.email}`))
-          .data
+        const orderHistoryFetch = (
+          await Axios.get(`http://localhost:8080/api/getOrders/${user.email}`)
+        ).data
         setOrderHistory(orderHistoryFetch)
       } catch (err) {
         console.error(err)
@@ -42,36 +43,36 @@ const UserProfile = () => {
       {!user ? (
         <Redirect to="/" />
       ) : (
-          <div>
-            <Header />
-            <div className="welcomeText">Hello {user.firstName}!</div>
-            <div className="pastOrdersContainer">
-              <div className="pastOrderHeader">Past Orders</div>
-              {orderHistory.map((order) => {
-                return <OrderHistoryItem key={Math.random()} order={order} />
-              })}
-            </div>
-
-            {!edit ? (
-              <form className="infoCard">
-                First name, Last name:
-                <div className="userInfo">
-                  {user.firstName} {user.lastName}
-                </div>
-              Email:
-                <div className="userInfo">{user.email}</div>
-              Password:
-                <div className="userInfo"> *******</div>
-                <button type="submit" className="signInSubmit" onClick={handleSubmit}>
-                  Change password
-              </button>
-              </form>
-            ) : (
-                <EditUserProfile />
-              )}
-            <Footer />
+        <div>
+          <Header />
+          <div className="welcomeText">Hello {user.firstName}!</div>
+          <div className="pastOrdersContainer">
+            <div className="pastOrderHeader">Past Orders</div>
+            {orderHistory.map((order) => {
+              return <OrderHistoryItem key={Math.random()} order={order} />
+            })}
           </div>
-        )}
+
+          {!edit ? (
+            <form className="infoCard">
+              First name, Last name:
+              <div className="userInfo">
+                {user.firstName} {user.lastName}
+              </div>
+              Email:
+              <div className="userInfo">{user.email}</div>
+              Password:
+              <div className="userInfo"> *******</div>
+              <button type="submit" className="signInSubmit" onClick={handleSubmit}>
+                Change password
+              </button>
+            </form>
+          ) : (
+            <EditUserProfile />
+          )}
+          <Footer />
+        </div>
+      )}
     </>
   )
 }
