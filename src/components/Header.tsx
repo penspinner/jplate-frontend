@@ -27,7 +27,7 @@ const Header = (props: any) => {
     <div className="grid gap-5 grid-cols-4 items-center border-b">
       <span className="h-40">
         <Link href="/">
-          <img src="/jplate.ico" style={{ height: '100%%' }} />
+          <img src="/jplate-light.png" style={{ height: '90%' }} />
         </Link>
       </span>
       {sum >= 1 ? sum : ''}

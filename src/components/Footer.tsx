@@ -4,7 +4,7 @@ import Link from 'next/link'
 const Footer = () => {
   const year = new Date().getFullYear()
   return (
-    <div className="bg-black w-full h-32 absolute bottom-0 grid gap-4 grid-cols-3 items-center">
+    <div className="bg-black w-full h-32 relative bottom-0 grid gap-4 grid-cols-3 items-center">
       <span className="flex justify-center">
         <Link href="https://github.com/mallockey">
           <img src="./GitHub-Mark-Light-64px.png" />

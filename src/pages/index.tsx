@@ -5,10 +5,11 @@ import Axios from 'axios'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Plate from '../components/Plate'
+import plates from '../utils/productDummyData'
 import Cart from '../components/Cart'
 
 const Index = () => {
-  const [plates, setPlates] = useState(null)
+  // const [plates, setPlates] = useState(null)
   const [cart, setCart] = useState([])
   const [showCart, setCartShow] = useState(false)
 
@@ -27,7 +28,7 @@ const Index = () => {
       try {
         const response = await Axios.get('http://localhost:8080/api/getPlates')
         if (!effectRan) {
-          setPlates(response.data)
+          // setPlates(response.data)
         }
       } catch (err) {
         effectRan = true
@@ -40,17 +41,19 @@ const Index = () => {
   return (
     <div className="static">
       <Header cart={cart} handleShowCart={handleShowCart} />
-      <div className="plateContainer">
+      <div className="relative flex flex-wrap justify-around pt-4">
         {showCart ? <Cart cart={cart} handleSetCart={handleSetCart} /> : ''}
         {plates
           ? plates.map((plate: any) => {
               return (
-                <Plate
-                  key={Math.random()}
-                  cart={cart}
-                  plate={plate}
-                  handleSetCart={handleSetCart}
-                />
+                <div className="p-4">
+                  <Plate
+                    key={Math.random()}
+                    cart={cart}
+                    plate={plate}
+                    handleSetCart={handleSetCart}
+                  />
+                </div>
               )
             })
           : ''}
