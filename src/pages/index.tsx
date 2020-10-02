@@ -41,7 +41,7 @@ const Index = () => {
   return (
     <div className="static">
       <Header cart={cart} handleShowCart={handleShowCart} />
-      <div className="relative flex flex-wrap justify-around pt-4">
+      <div className="relative flex flex-wrap bg-teal-100 justify-around pt-4">
         {showCart ? <Cart cart={cart} handleSetCart={handleSetCart} /> : ''}
         {plates
           ? plates.map((plate: any) => {
