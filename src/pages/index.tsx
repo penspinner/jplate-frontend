@@ -39,7 +39,7 @@ const Index = () => {
   }, [])
 
   return (
-    <div className="static">
+    <div className="static min-h-full">
       <Header cart={cart} handleShowCart={handleShowCart} />
       <div className="relative flex flex-wrap justify-around pt-4">
         {showCart ? <Cart cart={cart} handleSetCart={handleSetCart} /> : ''}
