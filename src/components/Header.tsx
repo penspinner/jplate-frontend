@@ -24,33 +24,43 @@ const Header = (props: any) => {
   }, [])
 
   return (
-    // <div className="bg-white flex justify-between border-b items-center">
-    <div className="grid gap-5 grid-cols-4 items-center">
-      <Link href="/">
-        <img src="/jplate.ico" style={{ height: '100px' }} />
-      </Link>
-      {sum >= 1 ? sum : ''}
-      <Link href="/About">About</Link>
-      {auth || cookie ? (
-        <Link href="/UserProfile">Profile</Link>
-      ) : (
-        <Link href="/SignIn">Sign in</Link>
-      )}
-      {auth || cookie ? (
+    <div className="grid gap-5 grid-cols-4 items-center border-b">
+      <span className="h-40">
         <Link href="/">
-          <button type="button" onClick={handleSignOut}>
-            Sign out
-          </button>
+          <img src="/jplate.ico" style={{ height: '100%%' }} />
         </Link>
-      ) : (
-        ''
-      )}
-      <img
-        id="headerCart"
-        style={{ height: '50px' }}
-        src="https://image.flaticon.com/icons/svg/25/25619.svg"
-        onClick={props.handleShowCart}
-      />
+      </span>
+      {sum >= 1 ? sum : ''}
+      <span className="grid grid-cols-2">
+        <Link href="/About">About</Link>
+        {auth || cookie ? (
+          <Link href="/UserProfile">Profile</Link>
+        ) : (
+          <Link href="/SignIn">Sign in</Link>
+        )}
+        {auth || cookie ? (
+          <Link href="/">
+            <button type="button" onClick={handleSignOut}>
+              Sign out
+            </button>
+          </Link>
+        ) : (
+          ''
+        )}
+      </span>
+      <span></span>
+      <span className="grid grid-cols-3 items-center">
+        <span></span>
+        <span></span>
+        <span>
+          <img
+            id="headerCart"
+            style={{ height: '50px' }}
+            src="https://image.flaticon.com/icons/svg/25/25619.svg"
+            onClick={props.handleShowCart}
+          />
+        </span>
+      </span>
     </div>
   )
 }
