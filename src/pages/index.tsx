@@ -9,7 +9,6 @@ import plates from '../utils/productDummyData'
 import Cart from '../components/Cart'
 
 const Index = () => {
-  // const [plates, setPlates] = useState(null)
   const [cart, setCart] = useState([])
   const [showCart, setCartShow] = useState(false)
 
@@ -42,7 +41,11 @@ const Index = () => {
     <div className="static min-h-full">
       <Header cart={cart} handleShowCart={handleShowCart} />
       <div className="relative bg-teal-100 flex flex-wrap justify-evenly pt-4">
-        {showCart ? <Cart cart={cart} handleSetCart={handleSetCart} /> : ''}
+        {showCart ? (
+          <Cart cart={cart} handleSetCart={handleSetCart} handleShowCart={handleShowCart} />
+        ) : (
+          ''
+        )}
         {plates
           ? plates.map((plate: any) => {
               return (

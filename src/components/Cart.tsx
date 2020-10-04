@@ -3,7 +3,7 @@ import CartItem from './CartItem'
 import Checkout from './Checkout'
 import OrderSubmitted from './OrderSubmitted'
 
-const Cart = (props: { cart: any[]; handleSetCart: any }) => {
+const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) => {
   const [checkout, setCheckout] = useState(false)
   const [orderSubmitted, setOrderSubmitted] = useState(false)
   function handleShowCheckout() {
@@ -33,8 +33,17 @@ const Cart = (props: { cart: any[]; handleSetCart: any }) => {
 
   if (props.cart[0] && orderSubmitted === false) {
     return (
-      <div id="cartContainer" className="absolute rounded-lg bg-white h-1/2 w-2/3 border p-10">
-        <div className="static pb-4 border-b text-2xl">Shopping Cart</div>
+      <div id="cartContainer" className="absolute bg-white h-1/2 w-2/3 border p-10">
+        <div className="static pb-4 border-b flex justify-between">
+          <div>Shopping cart</div>
+          <button
+            type="button"
+            className="bg-red-300 hover:bg-red-400 pr-3 pl-3 pt-1 pb-1 rounded"
+            onClick={props.handleShowCart}
+          >
+            X
+          </button>
+        </div>
         <div className="flex flex-col flex-wrap items-center">
           {props.cart.map((item: any) => {
             return (
@@ -68,8 +77,17 @@ const Cart = (props: { cart: any[]; handleSetCart: any }) => {
     return <OrderSubmitted handleOrderSubmitted={handleOrderSubmitted} />
   } else {
     return (
-      <div id="cartContainer" className="absolute bg-white pr-56 pl-56 pt-10 pb-10 border">
-        <div id="cartEmpty">Cart is empty, start shopping!</div>
+      <div className="absolute  bg-white h-1/2 w-2/3 border p-10">
+        <div className="flex justify-end items-start">
+          <button
+            type="button"
+            className="bg-red-300 hover:bg-red-400 pr-3 pl-3 pt-1 pb-1 rounded"
+            onClick={props.handleShowCart}
+          >
+            x
+          </button>
+        </div>
+        <div className="flex justify-center">Cart is empty, start shopping!</div>
       </div>
     )
   }
