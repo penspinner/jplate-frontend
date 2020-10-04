@@ -11,7 +11,7 @@ const Plate = (props: any) => {
   }
 
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-xl flex flex-col">
+    <div className="max-w-sm rounded-lg overflow-hidden shadow-xl flex flex-col">
       <img
         style={{ height: '22rem', width: '40rem' }}
         src={props.plate.imageURL}
@@ -26,7 +26,7 @@ const Plate = (props: any) => {
           Price per unit: {`$${props.plate.price}`}
           <QuantityCalc quantity={amount} onChange={handleQuantityChange} />
           <a
-            className="bg-teal-400 hover:bg-teal-600 rounded p-2"
+            className="bg-teal-400 hover:bg-teal-600 rounded p-2 text-white"
             type="button"
             onClick={() => {
               const newCart = addToCart(props.cart, props.plate, amount)

@@ -30,18 +30,24 @@ const Header = (props: any) => {
           <img src="/jplate-hexagon.ico" style={{ height: '100%' }} />
         </Link>
       </span>
-      {sum >= 1 ? sum : ''}
+
       <span className="flex justify-around text-2xl">
-        <Link href="/About">About</Link>
+        <Link href="/About">
+          <span className="hover:opacity-50">About</span>
+        </Link>
         {auth || cookie ? (
-          <Link href="/UserProfile">Profile</Link>
+          <Link href="/UserProfile">
+            <span className="hover:opacity-50">Profile</span>
+          </Link>
         ) : (
-          <Link href="/SignIn">Sign in</Link>
+          <Link href="/SignIn">
+            <span className="hover:opacity-50">Sign in</span>
+          </Link>
         )}
         {auth || cookie ? (
           <Link href="/">
             <button type="button" onClick={handleSignOut}>
-              Sign out
+              <span className="hover:opacity-50">Sign out</span>
             </button>
           </Link>
         ) : (
@@ -49,10 +55,12 @@ const Header = (props: any) => {
         )}
       </span>
       <span></span>
-      <span className="flex justify-end p-10">
+      <span className="flex justify-end text-2xl p-10 mr-10">
+        {sum >= 1 ? sum : ''}
         <img
           id="headerCart"
-          style={{ height: '50px' }}
+          style={{ height: '3rem' }}
+          className="hover:opacity-50"
           src="https://image.flaticon.com/icons/svg/25/25619.svg"
           onClick={props.handleShowCart}
         />

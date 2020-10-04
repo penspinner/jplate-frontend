@@ -33,8 +33,8 @@ const Cart = (props: { cart: any[]; handleSetCart: any }) => {
 
   if (props.cart[0] && orderSubmitted === false) {
     return (
-      <div id="cartContainer">
-        <div className="cartTitle">Shopping Cart</div>
+      <div id="cartContainer" className="absolute bg-white h-1/2 w-1/2 border p-10">
+        <div className="h-4">Shopping Cart</div>
         {props.cart.map((item: any) => {
           return (
             <CartItem
@@ -47,8 +47,7 @@ const Cart = (props: { cart: any[]; handleSetCart: any }) => {
         })}
         <div id="cartSubTotal">Subtotal: ${sum}</div>
         <div id="cartProceedButton">
-          <button type="button" className="cartProceedButton" onClick={handleShowCheckout}>
-            {' '}
+          <button type="button" onClick={handleShowCheckout}>
             Proceed to checkout
           </button>
         </div>
@@ -58,7 +57,7 @@ const Cart = (props: { cart: any[]; handleSetCart: any }) => {
     return <OrderSubmitted handleOrderSubmitted={handleOrderSubmitted} />
   } else {
     return (
-      <div id="cartContainer">
+      <div id="cartContainer" className="absolute bg-white pr-56 pl-56 pt-10 pb-10 border">
         <div id="cartEmpty">Cart is empty, start shopping!</div>
       </div>
     )

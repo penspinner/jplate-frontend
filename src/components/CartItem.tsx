@@ -8,11 +8,11 @@ const CartItem = (props: {
   handleSetCart: (arg0: any) => void
 }) => {
   return (
-    <div className="cartItem">
+    <div className="flex flex-col">
       <div className="itemTitle">{props.item.name}</div>
       <QuantitySelector cart={props.cart} item={props.item} handleSetCart={props.handleSetCart} />
       <div className="itemPrice">${props.item.price}</div>
-      <img src={props.item.imageURL} className="cartImg" />
+      <img className="h-40 w-40" src={props.item.imageURL} />
 
       <button
         type="button"
