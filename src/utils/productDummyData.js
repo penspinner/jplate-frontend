@@ -1,4 +1,4 @@
-module.exports = [
+const plates = [
   {
     id: 1,
     name: 'Plain White Plate',
@@ -72,3 +72,5 @@ module.exports = [
     description: 'Classic elegant creamy colored dining plate.',
   },
 ]
+
+export default plates
