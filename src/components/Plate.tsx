@@ -1,22 +1,17 @@
 import React, { useState } from 'react'
-import ItemDescription from './ItemDescription'
+import QuantityCalc from './QuantityCalc'
+import { addToCart } from '../utils/utilsFunctions'
 
 const Plate = (props: any) => {
   const [showItemDescription, setShowItemDescription] = useState(false)
+  const [amount, setAmount] = useState(1)
+
+  function handleQuantityChange(num: any) {
+    setAmount(num)
+  }
 
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-xl flex flex-col">
-      {showItemDescription ? (
-        <ItemDescription
-          cart={props.cart}
-          handleSetCart={props.handleSetCart}
-          plate={props.plate}
-          toggleItemDescription={setShowItemDescription}
-          showItemDescription={showItemDescription}
-        />
-      ) : (
-        ''
-      )}
       <img
         style={{ height: '22rem', width: '40rem' }}
         src={props.plate.imageURL}
@@ -27,21 +22,19 @@ const Plate = (props: any) => {
         <p className="text-gray-700 text-base border-b pb-4 border-teal-500">
           {props.plate.description}
         </p>
-        <span className="flex justify-around items-center text-lg">
+        <span className="flex justify-around items-center text-sm mt-2 mb-2">
+          Price per unit: {`$${props.plate.price}`}
+          <QuantityCalc quantity={amount} onChange={handleQuantityChange} />
           <a
-            className="bg-teal-400 hover:bg-teal-600 rounded m-2"
+            className="bg-teal-400 hover:bg-teal-600 rounded p-2"
             type="button"
             onClick={() => {
-              return setShowItemDescription(!showItemDescription)
+              const newCart = addToCart(props.cart, props.plate, amount)
+              props.handleSetCart(newCart)
             }}
           >
-            <img
-              id="cartButton"
-              className="h-16 pr-2 pl-1 pt-1 pb-1"
-              src="https://image.flaticon.com/icons/svg/25/25619.svg"
-            />
+            Add to cart
           </a>
-          Price: {`$${props.plate.price}`}
         </span>
       </div>
     </div>

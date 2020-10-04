@@ -1,5 +1,6 @@
 module.exports = [
   {
+    id: 1,
     name: 'Plain White Plate',
     price: 25.0,
     quantity: 100,
@@ -7,6 +8,7 @@ module.exports = [
     description: 'Classic round white dining plate.',
   },
   {
+    id: 2,
     name: 'Golden Plate',
     price: 55.0,
     quantity: 100,
@@ -14,6 +16,7 @@ module.exports = [
     description: 'Royal gold dining and display plate.',
   },
   {
+    id: 3,
     name: 'Royal Designed Plate',
     price: 1000.0,
     quantity: 100,
@@ -21,6 +24,7 @@ module.exports = [
     description: 'Royal design display plate.',
   },
   {
+    id: 4,
     name: 'Terracotta Plate',
     price: 55.0,
     quantity: 100,
@@ -28,6 +32,7 @@ module.exports = [
     description: 'Terracotta dining plate, red hue.',
   },
   {
+    id: 5,
     name: 'Blue Vine Plate',
     price: 25.0,
     quantity: 100,
@@ -35,6 +40,7 @@ module.exports = [
     description: 'Blue garden vine dining plate.',
   },
   {
+    id: 6,
     name: 'Lime Green Plate',
     price: 25.0,
     quantity: 100,
@@ -42,6 +48,7 @@ module.exports = [
     description: 'Lime green dining plate.',
   },
   {
+    id: 7,
     name: 'Textured Black Plate',
     price: 55.0,
     quantity: 100,
@@ -49,6 +56,7 @@ module.exports = [
     description: 'Sleek textured black dining plate.',
   },
   {
+    id: 8,
     name: 'Smooth Black Plate',
     price: 25.0,
     quantity: 100,
@@ -56,17 +64,11 @@ module.exports = [
     description: 'Smooth porcelain black dining plate.',
   },
   {
+    id: 9,
     name: 'Elegant Cream Colored Plate',
     price: 55.0,
     quantity: 100,
     imageURL: '../../plates/victorian.png',
     description: 'Classic elegant creamy colored dining plate.',
-  },
-  {
-    name: 'Plain Turquoise Plate',
-    price: 25.0,
-    quantity: 100,
-    imageURL: '../../plates/teal.png',
-    description: 'Plain turquiose dining plate.',
   },
 ]
