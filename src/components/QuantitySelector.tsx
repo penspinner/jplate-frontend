@@ -17,12 +17,14 @@ const QuantitySelector = (props: any) => {
   }
 
   return (
-    <div>
+    <div className="flex justify-around pt-1">
+      <div className="text-md">Quantity: </div>
       <select
         name="quantitySelector"
         ref={selectorRef}
         onChange={handleSelect}
         defaultValue={currentQuantity}
+        className="ml-2 p-1 bg-teal-200 hover:bg-teal-400 rounded"
       >
         {validQuantityRange.map((num) => {
           return (

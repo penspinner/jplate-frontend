@@ -33,8 +33,8 @@ const Cart = (props: { cart: any[]; handleSetCart: any }) => {
 
   if (props.cart[0] && orderSubmitted === false) {
     return (
-      <div id="cartContainer" className="absolute bg-white h-1/2 w-2/3 border p-10">
-        <div className="static pb-4 border-b">Shopping Cart</div>
+      <div id="cartContainer" className="absolute rounded-lg bg-white h-1/2 w-2/3 border p-10">
+        <div className="static pb-4 border-b text-2xl">Shopping Cart</div>
         <div className="flex flex-col flex-wrap items-center">
           {props.cart.map((item: any) => {
             return (
@@ -47,11 +47,20 @@ const Cart = (props: { cart: any[]; handleSetCart: any }) => {
             )
           })}
         </div>
-        <div id="cartSubTotal">Subtotal: ${sum}</div>
-        <div id="cartProceedButton">
-          <button type="button" onClick={handleShowCheckout}>
-            Proceed to checkout
-          </button>
+        <div className="pt-10 pb-5 grid grid-cols-2 border-t items-center">
+          <div className="text-xl text-center">Ready to checkout? </div>
+          <div className="flex flex-col items-center">
+            <div id="cartSubTotal">
+              Subtotal: <span className="text-lg"> ${sum}</span>
+            </div>
+            <button
+              type="button"
+              className="bg-blue-200 hover:bg-blue-400 p-2 mt-4 rounded-lg"
+              onClick={handleShowCheckout}
+            >
+              Proceed to checkout
+            </button>
+          </div>
         </div>
       </div>
     )
