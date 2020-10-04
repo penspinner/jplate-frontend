@@ -13,11 +13,11 @@ const Header = (props: any) => {
     })
   }
 
-  function handleSignOut() {
-    setAuth(false)
-    window.localStorage.removeItem('cookie')
-    location.reload()
-  }
+  // function handleSignOut() {
+  //   setAuth(false)
+  //   window.localStorage.removeItem('cookie')
+  //   location.reload()
+  // }
 
   useEffect(() => {
     setCookie(window.localStorage.cookie)
