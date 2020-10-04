@@ -33,12 +33,15 @@ const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) =
 
   if (props.cart[0] && orderSubmitted === false) {
     return (
-      <div id="cartContainer" className="absolute bg-white h-1/2 w-2/3 border p-10">
-        <div className="static pb-4 border-b flex justify-between">
+      <div
+        id="cartContainer"
+        className="overflow-auto absolute bg-white h-3/4 w-2/3 border p-10 max-h-screen"
+      >
+        <div className="static pb-4 border-b flex justify-between border-teal-500">
           <div>Shopping cart</div>
           <button
             type="button"
-            className="bg-red-300 hover:bg-red-400 pr-3 pl-3 pt-1 pb-1 rounded"
+            className="bg-red-300 hover:bg-red-500 pr-3 pl-3 pt-1 pb-1 rounded"
             onClick={props.handleShowCart}
           >
             X
@@ -56,7 +59,7 @@ const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) =
             )
           })}
         </div>
-        <div className="pt-10 pb-5 grid grid-cols-2 border-t items-center">
+        <div className="pt-10 pb-5 grid grid-cols-2 border-t border-teal-500 items-center">
           <div className="text-xl text-center">Ready to checkout? </div>
           <div className="flex flex-col items-center">
             <div id="cartSubTotal">
@@ -66,6 +69,7 @@ const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) =
               type="button"
               className="bg-blue-200 hover:bg-blue-400 p-2 mt-4 rounded-lg"
               onClick={handleShowCheckout}
+              disabled
             >
               Proceed to checkout
             </button>
@@ -81,7 +85,7 @@ const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) =
         <div className="flex justify-end items-start">
           <button
             type="button"
-            className="bg-red-300 hover:bg-red-400 pr-3 pl-3 pt-1 pb-1 rounded"
+            className="bg-red-300 hover:bg-red-500 pr-3 pl-3 pt-1 pb-1 rounded"
             onClick={props.handleShowCart}
           >
             x

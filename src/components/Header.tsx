@@ -24,35 +24,40 @@ const Header = (props: any) => {
   }, [])
 
   return (
-    <div className="grid gap-5 grid-cols-4 items-center border-b border-teal-500 pb-2 ">
-      <span className="h-40 flex justify-center">
+    <div className="flex justify-around items-center border-b border-teal-500">
+      <span className="h-40 flex justify-center ">
         <Link href="/">
-          <img src="/jplate-hexagon.ico" style={{ height: '100%' }} />
+          <img className="hover:opacity-50" src="/jplate-hexagon.ico" style={{ height: '100%' }} />
         </Link>
       </span>
 
-      <span className="flex justify-around text-2xl">
-        <Link href="/About">
-          <span className="hover:opacity-50">About</span>
+      <span className="text-xl items-center">
+        <Link href="/WhatIsThis">
+          <span className="hover:opacity-50">What is this? </span>
         </Link>
-        {auth || cookie ? (
-          <Link href="/UserProfile">
-            <span className="hover:opacity-50">Profile</span>
-          </Link>
-        ) : (
-          <Link href="/SignIn">
-            <span className="hover:opacity-50">Sign in</span>
-          </Link>
-        )}
-        {auth || cookie ? (
-          <Link href="/">
-            <button type="button" onClick={handleSignOut}>
-              <span className="hover:opacity-50">Sign out</span>
-            </button>
-          </Link>
-        ) : (
-          ''
-        )}
+        {/* {auth || cookie ? (
+        //   <Link href="/UserProfile">
+        //     <span className="hover:opacity-50">Profile</span>
+        //   </Link>
+        // ) : (
+        //   <Link href="/SignIn">
+        //     <span className="hover:opacity-50">Sign in</span>
+        //   </Link>
+        // )}
+        // {auth || cookie ? (
+        //   <Link href="/">
+        //     <button type="button" onClick={handleSignOut}>
+        //       <span className="hover:opacity-50">Sign out</span>
+        //     </button>
+        //   </Link>
+        // ) : (
+        //   ''
+        )} */}
+      </span>
+      <span className="text-xl">
+        <Link href="/AboutMe">
+          <span className="hover:opacity-50"> About Me</span>
+        </Link>
       </span>
       <span></span>
       <span className="flex justify-end text-2xl p-10 mr-10">
