@@ -38,26 +38,38 @@ const Index = () => {
   }, [])
 
   return (
-    <div className="static min-h-full">
-      <Header cart={cart} handleShowCart={handleShowCart} />
-      <div className="relative bg-teal-100 flex flex-wrap justify-evenly pt-4">
-        {showCart ? (
-          <Cart cart={cart} handleSetCart={handleSetCart} handleShowCart={handleShowCart} />
-        ) : (
-          ''
-        )}
-        {plates
-          ? plates.map((plate: any) => {
-              return (
-                <div key={Math.random()} className="p-4">
-                  <Plate cart={cart} plate={plate} handleSetCart={handleSetCart} />
-                </div>
-              )
-            })
-          : ''}
+    <>
+      <Head>
+        <title>JPlate</title>
+        <meta property="og:title" content="JPlate" />
+        <meta property="og:image" content="/pageImage.png" />
+        <meta property="og:url" content="http://jplate-frontend.vercel.app/" />
+        <meta
+          property="og:description"
+          content="A mock website that sells plates. Built with React Hooks and Next JS. Styles with TailwindCSS."
+        />
+      </Head>
+      <div className="static min-h-full">
+        <Header cart={cart} handleShowCart={handleShowCart} />
+        <div className="relative bg-teal-100 flex flex-wrap justify-evenly pt-4">
+          {showCart ? (
+            <Cart cart={cart} handleSetCart={handleSetCart} handleShowCart={handleShowCart} />
+          ) : (
+            ''
+          )}
+          {plates
+            ? plates.map((plate: any) => {
+                return (
+                  <div key={Math.random()} className="p-4">
+                    <Plate cart={cart} plate={plate} handleSetCart={handleSetCart} />
+                  </div>
+                )
+              })
+            : ''}
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   )
 }
 
