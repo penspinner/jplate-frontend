@@ -6,7 +6,6 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Plate from '../components/Plate'
 import plates from '../utils/productDummyData'
-
 import Cart from '../components/Cart'
 
 const Index = () => {
