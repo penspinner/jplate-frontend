@@ -6,24 +6,46 @@ const WhatIsThis = () => {
   return (
     <div>
       <Header />
-      <div className="pl-40 pr-40 pt-10 pb-20">
-        <h1 className="pb-10 font-bold text-center">What is JPlate?</h1>
-
-        <article className="pb-2">
+      <div className="pl-40 pr-40  h-screen flex-col items-center justify-center ">
+        <h1 className="text-center underline pb-8 pt-16">What is JPlate?</h1>
+        <article className="text-center pb-8">
           JPlate is a mock online store that my team and I created to gain experience with the
           following technologies:
         </article>
-        <article>
-          <li>React hooks JS</li>
-          <li>Next JS</li>
-          <li>Tailwind CSS</li>
-          <li>PostgreSQL</li>
-          <li>Heroku</li>
-          <li>TypeScript</li>
-          <li>Webpack</li>
-        </article>
-        <article className="pt-2">
-          JPlate is meant to be an imiitation online store. This current version has the cart
+        <div className="flex justify-center">
+          <table className="flex-col justify-center text-left ">
+            <tr>
+              <td className="text-green-400">&#10003;</td>
+              <td>React Hooks JS</td>
+            </tr>
+            <tr>
+              <td className="text-green-400">&#10003;</td>
+              <td>Next JS</td>
+            </tr>
+            <tr>
+              <td className="text-green-400">&#10003;</td>
+              <td>Tailwind CSS </td>
+            </tr>
+            <tr>
+              <td className="text-green-400">&#10003;</td>
+              <td>PostgreSQL </td>
+            </tr>
+            <tr>
+              <td className="text-green-400">&#10003;</td>
+              <td>Heroku</td>
+            </tr>
+            <tr>
+              <td className="text-green-400">&#10003;</td>
+              <td>TypeScript </td>
+            </tr>
+            <tr>
+              <td className="text-green-400">&#10003;</td>
+              <td>Webpack </td>
+            </tr>
+          </table>
+        </div>
+        <article className="pt-16 text-center">
+          JPlate is meant to be an imitation online store. This current version has the cart
           functionality. In the next version we will implement the sign in/sign up and checkout
           functionalities.
         </article>
