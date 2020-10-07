@@ -29,7 +29,7 @@ const Header = (props: any) => {
         <Link href="/">
           <img
             className="hover:opacity-50 cursor-pointer"
-            src="/jplate.png"
+            src="/jplate-round-logo.png"
             style={{ height: '100%', width: 'auto' }}
           />
         </Link>
