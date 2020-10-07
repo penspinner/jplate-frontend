@@ -6,7 +6,7 @@ const WhatIsThis = () => {
   return (
     <div>
       <Header />
-      <div className="pl-40 pr-40  h-screen flex-col items-center justify-center ">
+      <div className="w-auto text-left h-screen flex-col items-center justify-center ">
         <h1 className="text-center underline pb-8 pt-16">What is JPlate?</h1>
         <article className="text-center pb-8">
           JPlate is a mock online store that my team and I created to gain experience with the
