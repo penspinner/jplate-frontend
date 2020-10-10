@@ -29,19 +29,25 @@ const Header = (props: any) => {
   }, [])
   if (hamMenuShown) {
     return (
-      <div className="flex border-b border-teal-500 justify-evenly h-40">
-        <div className="flex-col items-stretch justify-center">
-          <Link href="/AboutMe">
-            <span className="hover:opacity-50 cursor-pointer"> About Me</span>
-          </Link>
+      <div className="flex items-center border-b border-teal-500 h-32">
+        <div className="flex-col w-full text-lg font-bold">
+          <div>
+            <Link href="/">
+              <span className="hover:opacity-50 cursor-pointer">Home</span>
+            </Link>
+          </div>
+          <div>
+            <Link href="/AboutMe">
+              <span className="hover:opacity-50 cursor-pointer">About Me</span>
+            </Link>
+          </div>
           <div>
             <Link href="/WhatIsThis">
               <span className="hover:opacity-50 cursor-pointer">What is this? </span>
             </Link>
           </div>
-          <div>Cart</div>
         </div>
-        <div className="sm:block md:hidden">
+        <div className="ml-2">
           <img src="/hamburger-menu.svg" style={{ height: '4rem' }} onClick={toggleHamburgerMenu} />
         </div>
       </div>
