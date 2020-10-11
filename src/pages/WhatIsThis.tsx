@@ -10,7 +10,7 @@ const WhatIsThis = () => {
     'PostgreSQL',
     'Heroku',
     'TypeScript',
-    'Webpack'
+    'Webpack',
   ]
   return (
     <div>
