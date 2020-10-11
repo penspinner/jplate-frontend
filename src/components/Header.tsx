@@ -29,37 +29,40 @@ const Header = (props: any) => {
   }, [])
   if (hamMenuShown) {
     return (
-      <div className="flex items-center border-b border-teal-500 h-32">
-        <div className="flex-col w-full text-lg font-bold">
-          <div>
-            <Link href="/">
-              <span className="hover:opacity-50 cursor-pointer">Home</span>
-            </Link>
-          </div>
-          <div>
-            <Link href="/AboutMe">
-              <span className="hover:opacity-50 cursor-pointer">About Me</span>
-            </Link>
-          </div>
-          <div>
-            <Link href="/WhatIsThis">
-              <span className="hover:opacity-50 cursor-pointer">What is this? </span>
-            </Link>
-          </div>
-        </div>
+      <div className="flex flex-col border-b border-teal-500 h-full z-10 ">
         <div className="ml-2">
           <img src="/hamburger-menu.svg" style={{ height: '4rem' }} onClick={toggleHamburgerMenu} />
+        </div>
+        <div className="flex flex-col h-full">
+          <Link href="/">
+            <div className="bg-teal-200 h-56 flex flex-row items-center text-3xl p-5">
+              <span className="hover:opacity-50 cursor-pointer">Home</span>
+            </div>
+          </Link>
+          <Link href="/AboutMe">
+            <div className="bg-teal-300 h-56 flex flex-row items-center text-3xl p-5">
+              <span className="hover:opacity-50 cursor-pointer">About Me</span>
+            </div>
+          </Link>
+          <Link href="/WhatIsThis">
+            <div className="bg-teal-400 h-56 flex flex-row items-center text-3xl p-5">
+              <span className="hover:opacity-50 cursor-pointer">What is this? </span>
+            </div>
+          </Link>
         </div>
       </div>
     )
   } else {
     return (
-      <div className="flex justify-evenly items-center border-b border-teal-500">
-        <span className="h-40 flex justify-center">
+      <div className="flex justify-evenly items-center border-b border-teal-500 max-h-20">
+        <div className="sm:block md:hidden">
+          <img src="/hamburger-menu.svg" style={{ height: '4rem' }} onClick={toggleHamburgerMenu} />
+        </div>
+        <span className="h-24 flex justify-center items-center p-2">
           <Link href="/">
             <img
-              className="hover:opacity-50 cursor-pointer"
-              src="/jplate-round-logo.png"
+              className=" opacity-80 hover:opacity-50 cursor-pointer"
+              src="/jplate-dark.png"
               style={{ height: '100%', width: 'auto' }}
             />
           </Link>
@@ -102,9 +105,6 @@ const Header = (props: any) => {
             onClick={props.handleShowCart}
           />
         </span>
-        <div className="sm:block md:hidden">
-          <img src="/hamburger-menu.svg" style={{ height: '4rem' }} onClick={toggleHamburgerMenu} />
-        </div>
       </div>
     )
   }
