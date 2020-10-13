@@ -50,9 +50,9 @@ const Index = () => {
           content="A mock website that sells plates. Built with React Hooks and Next JS. Styles with TailwindCSS."
         />
       </Head>
-      <div className="static min-h-full">
+      <div className="min-h-screen flex flex-col">
         <Header cart={cart} handleShowCart={handleShowCart} />
-        <div className="relative bg-teal-100 flex flex-wrap justify-evenly pt-4">
+        <div className="bg-teal-100 flex flex-wrap flex-grow justify-evenly pt-4">
           {showCart ? (
             <Cart cart={cart} handleSetCart={handleSetCart} handleShowCart={handleShowCart} />
           ) : (
