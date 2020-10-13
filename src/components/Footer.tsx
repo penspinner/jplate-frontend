@@ -1,10 +1,8 @@
 import React from 'react'
-import Link from 'next/link'
 
 const Footer = () => {
-  const year = new Date().getFullYear()
   return (
-    <div className="bg-black w-full h-56 relative bottom-0 grid grid-cols-3 items-center">
+    <div className="bg-black w-full h-56 relative bottom-0 grid grid-cols-3 items-center flex-grow">
       <span className="flex justify-center">
         <a href="https://github.com/mallockey" target="_blank">
           <img className="cursor-pointer" src="./GitHub-Mark-Light-64px.png" />

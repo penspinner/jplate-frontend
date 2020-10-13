@@ -13,11 +13,11 @@ const WhatIsThis = () => {
     'Webpack',
   ]
   return (
-    <div>
+    <body className="min-h-screen flex flex-col">
       <Header />
-      <div className="w-auto text-left h-screen flex-col items-center justify-center ">
+      <div className="flex-col flex-wrap flex-grow items-center justify-center ">
         <h1 className="text-center underline pb-8 pt-16">What is JPlate?</h1>
-        <article className="text-center pb-8 pr-4 pl-4">
+        <article className="text-center pb-4 pr-4 pl-4">
           JPlate is a mock online store that my team and I created to gain experience with the
           following technologies:
         </article>
@@ -36,14 +36,14 @@ const WhatIsThis = () => {
             </tbody>
           </table>
         </div>
-        <article className="pt-16 pr-4 pl-4 text-center">
+        <article className="flex text-center justify-center items-center mb-16 mt-4 md:mr-48 md:ml-48">
           JPlate is meant to be an imitation online store. This current version has the cart
           functionality. In the next version we will implement the sign in/sign up and checkout
           functionalities.
         </article>
       </div>
       <Footer />
-    </div>
+    </body>
   )
 }
 
