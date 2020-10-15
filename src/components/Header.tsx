@@ -6,6 +6,7 @@ const Header = (props: any) => {
   const [auth, setAuth] = useContext(AuthContext)
   const [cookie, setCookie] = useState(null)
   const [hamMenuShown, setShowHam] = useState(false)
+  const [stateWindow, setWindow] = useState({})
 
   let sum = 0
   if (props.cart) {
@@ -18,6 +19,12 @@ const Header = (props: any) => {
     setShowHam(!hamMenuShown)
   }
 
+  function getCurrentPath() {
+    if (stateWindow.hasOwnProperty('location')) {
+      return stateWindow['location']['pathname']
+    }
+  }
+
   // function handleSignOut() {
   //   setAuth(false)
   //   window.localStorage.removeItem('cookie')
@@ -25,6 +32,7 @@ const Header = (props: any) => {
   // }
 
   useEffect(() => {
+    setWindow(window)
     setCookie(window.localStorage.cookie)
   }, [])
   if (hamMenuShown) {
@@ -34,21 +42,33 @@ const Header = (props: any) => {
           <img src="/hamburger-menu.svg" style={{ height: '4rem' }} onClick={toggleHamburgerMenu} />
         </div>
         <div className="flex flex-col h-full">
-          <Link href="/">
-            <div className="bg-teal-200 h-56 flex flex-row items-center text-3xl p-5">
-              <span className="hover:opacity-50 cursor-pointer">Home</span>
-            </div>
-          </Link>
-          <Link href="/AboutMe">
-            <div className="bg-teal-300 h-56 flex flex-row items-center text-3xl p-5">
-              <span className="hover:opacity-50 cursor-pointer">About Me</span>
-            </div>
-          </Link>
-          <Link href="/WhatIsThis">
-            <div className="bg-teal-400 h-56 flex flex-row items-center text-3xl p-5">
-              <span className="hover:opacity-50 cursor-pointer">What is this? </span>
-            </div>
-          </Link>
+          <div className="bg-teal-200 h-56 flex flex-row items-center text-3xl p-5 border-b">
+            {getCurrentPath() === '/' ? (
+              <button type="button" onClick={toggleHamburgerMenu}>
+                Home
+              </button>
+            ) : (
+              <Link href="/">Home</Link>
+            )}
+          </div>
+          <div className="bg-teal-300 h-56 flex flex-row items-center text-3xl p-5 border-b">
+            {getCurrentPath() === '/AboutMe' ? (
+              <button type="button" onClick={toggleHamburgerMenu}>
+                About Me
+              </button>
+            ) : (
+              <Link href="/AboutMe">About Me</Link>
+            )}
+          </div>
+          <div className="bg-teal-400 h-56 flex flex-row items-center text-3xl p-5">
+            {getCurrentPath() === '/WhatIsThis' ? (
+              <button type="button" onClick={toggleHamburgerMenu}>
+                What is this?
+              </button>
+            ) : (
+              <Link href="/WhatIsThis">What is this?</Link>
+            )}
+          </div>
         </div>
       </div>
     )
@@ -95,8 +115,7 @@ const Header = (props: any) => {
             <span className="hover:opacity-50 cursor-pointer"> About Me</span>
           </Link>
         </span>
-        <span className="justify-end sm: hidden md:block lg:block text-2xl p-10 mr-10">
-          {sum >= 1 ? sum : ''}
+        <div className="hidden md:block md:flex md:items-end">
           <img
             id="headerCart"
             style={{ height: '3rem' }}
@@ -104,7 +123,8 @@ const Header = (props: any) => {
             src="https://image.flaticon.com/icons/svg/25/25619.svg"
             onClick={props.handleShowCart}
           />
-        </span>
+          <div className="w-2">{sum >= 1 ? sum : ''}</div>
+        </div>
       </div>
     )
   }

@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 
 const About = () => {
   return (
-    <body className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Header />
       <div className="flex flex-wrap flex-grow items-center justify-center">
         <div className="sm: w-full lg:w-1/2 text-center ">
@@ -27,7 +27,7 @@ const About = () => {
         </div>
       </div>
       <Footer />
-    </body>
+    </div>
   )
 }
 
