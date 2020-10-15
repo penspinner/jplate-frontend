@@ -13,7 +13,7 @@ const WhatIsThis = () => {
     'Webpack',
   ]
   return (
-    <body className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Header />
       <div className="flex-col flex-wrap flex-grow items-center justify-center ">
         <h1 className="text-center underline pb-8 pt-16">What is JPlate?</h1>
@@ -43,7 +43,7 @@ const WhatIsThis = () => {
         </article>
       </div>
       <Footer />
-    </body>
+    </div>
   )
 }
 

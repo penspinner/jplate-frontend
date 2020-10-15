@@ -18,7 +18,7 @@ const QuantityCalc = (props: { quantity: any; onChange: any }) => {
         >
           -
         </button>
-        <span className="border pl-3 pr-3 pt-2 pb-2">{amount}</span>
+        <span className="inline-block border pl-3 pr-3 pt-2 pb-2 w-8">{amount}</span>
         <button
           id="add"
           type="button"
