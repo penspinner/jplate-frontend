@@ -81,8 +81,8 @@ const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) =
     return <OrderSubmitted handleOrderSubmitted={handleOrderSubmitted} />
   } else {
     return (
-      <div className="absolute  bg-white h-1/2 w-2/3 border p-10">
-        <div className="flex justify-end items-start">
+      <div className="absolute  bg-white h-1/2 w-2/3 border p-5">
+        <div className="flex justify-end">
           <button
             type="button"
             className="bg-red-300 hover:bg-red-500 pr-3 pl-3 pt-1 pb-1 rounded"
@@ -91,7 +91,9 @@ const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) =
             x
           </button>
         </div>
-        <div className="flex justify-center">Cart is empty, start shopping!</div>
+        <div className="flex justify-center text-center pt-5 pb-10">
+          Cart is empty, start shopping!
+        </div>
       </div>
     )
   }
