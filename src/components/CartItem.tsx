@@ -24,7 +24,11 @@ const CartItem = (props: {
         <button
           type="button"
           id="removeFromCart"
+<<<<<<< HEAD
           className="md:static md:right-0 bg-red-300 hover:bg-red-500 md:p-2 ml-48 rounded-lg mt-4 mb-1 mr-1 p-2"
+=======
+          className="md:static md:right-0 bg-red-300 hover:bg-red-500 md:p-2 ml-48 rounded-lg p-1"
+>>>>>>> master
           onClick={() => {
             const newCart = removeFromCart(props.cart, props.item)
             props.handleSetCart(newCart)
