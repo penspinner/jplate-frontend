@@ -42,23 +42,6 @@ const Header = (props: any) => {
           <img src="/hamburger-menu.svg" style={{ height: '4rem' }} onClick={toggleHamburgerMenu} />
         </div>
         <div className="flex flex-col h-full">
-<<<<<<< HEAD
-          <Link href="/">
-            <div className="bg-teal-200 h-56 flex flex-row items-center text-3xl p-5">
-              <span className="hover:opacity-50 cursor-pointer">Home</span>
-            </div>
-          </Link>
-          <Link href="/AboutMe">
-            <div className="bg-teal-300 h-56 flex flex-row items-center text-3xl p-5">
-              <span className="hover:opacity-50 cursor-pointer">About Me</span>
-            </div>
-          </Link>
-          <Link href="/WhatIsThis">
-            <div className="bg-teal-400 h-56 flex flex-row items-center text-3xl p-5">
-              <span className="hover:opacity-50 cursor-pointer">What is this? </span>
-            </div>
-          </Link>
-=======
           <div className="bg-teal-200 h-56 flex flex-row items-center text-3xl p-5 border-b">
             {getCurrentPath() === '/' ? (
               <button type="button" onClick={toggleHamburgerMenu}>
@@ -86,7 +69,6 @@ const Header = (props: any) => {
               <Link href="/WhatIsThis">What is this?</Link>
             )}
           </div>
->>>>>>> 967932330d7ad8000926438b6f22cbed45c0d8c7
         </div>
       </div>
     )
@@ -141,12 +123,8 @@ const Header = (props: any) => {
             src="https://image.flaticon.com/icons/svg/25/25619.svg"
             onClick={props.handleShowCart}
           />
-<<<<<<< HEAD
-        </span>
-=======
           <div className="w-2">{sum >= 1 ? sum : ''}</div>
         </div>
->>>>>>> 967932330d7ad8000926438b6f22cbed45c0d8c7
       </div>
     )
   }
