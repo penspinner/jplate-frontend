@@ -35,10 +35,10 @@ const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) =
     return (
       <div
         id="cartContainer"
-        className="overflow-auto absolute bg-white h-3/4 w-2/3 border p-10 max-h-screen"
+        className="overflow-auto absolute bg-white h-3/4 w-5/7 border p-10 max-h-screen"
       >
-        <div className="static pb-4 border-b flex justify-between border-teal-500">
-          <div>Shopping cart</div>
+        <div className="static top-2 pb-4 border-b flex justify-between border-teal-500">
+          <div className="text-lg">Shopping cart</div>
           <button
             type="button"
             className="bg-red-300 hover:bg-red-500 pr-3 pl-3 pt-1 pb-1 rounded"
@@ -47,7 +47,7 @@ const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) =
             X
           </button>
         </div>
-        <div className="flex flex-col flex-wrap items-center">
+        <div className="flex flex-col flex-wrap items-center justify-evenly">
           {props.cart.map((item: any) => {
             return (
               <CartItem
@@ -59,15 +59,15 @@ const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) =
             )
           })}
         </div>
-        <div className="pt-10 pb-5 grid grid-cols-2 border-t border-teal-500 items-center">
-          <div className="text-xl text-center">Ready to checkout? </div>
-          <div className="flex flex-col items-center">
-            <div id="cartSubTotal">
+        <div className="md:pt-10 md:pb-5 md:grid md:grid-cols-2  border-teal-500 md:items-center border-t">
+          <div className="text-xl text-center mt-2">Ready to checkout? </div>
+          <div className="flex justify-around items-center md:flex md:flex-col md:items-center">
+            <div className="m-1">
               Subtotal: <span className="text-lg"> ${sum}</span>
             </div>
             <button
               type="button"
-              className="bg-blue-200 hover:bg-blue-400 p-2 mt-4 rounded-lg"
+              className="bg-blue-200 hover:bg-blue-400 p-3 m-1 rounded-lg"
               onClick={handleShowCheckout}
               disabled
             >
@@ -81,8 +81,8 @@ const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) =
     return <OrderSubmitted handleOrderSubmitted={handleOrderSubmitted} />
   } else {
     return (
-      <div className="absolute  bg-white h-1/2 w-2/3 border p-10">
-        <div className="flex justify-end items-start">
+      <div className="absolute  bg-white h-1/2 w-2/3 border p-5">
+        <div className="flex justify-end">
           <button
             type="button"
             className="bg-red-300 hover:bg-red-500 pr-3 pl-3 pt-1 pb-1 rounded"
@@ -91,7 +91,9 @@ const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) =
             x
           </button>
         </div>
-        <div className="flex justify-center">Cart is empty, start shopping!</div>
+        <div className="flex justify-center text-center pt-5 pb-10">
+          Cart is empty, start shopping!
+        </div>
       </div>
     )
   }
