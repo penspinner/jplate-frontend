@@ -123,7 +123,9 @@ const Header = (props: any) => {
             src="https://image.flaticon.com/icons/svg/25/25619.svg"
             onClick={props.handleShowCart}
           />
-          <div className="w-2">{sum >= 1 ? sum : ''}</div>
+          <div className="flex items-center justify-center w-6 bg-yellow-300 rounded-lg transition-all duration-500 ease-in-out">
+            {sum >= 1 ? sum : ''}
+          </div>
         </div>
       </div>
     )

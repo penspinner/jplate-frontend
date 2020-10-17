@@ -23,6 +23,9 @@ const Index = () => {
 
   function handleAddedToCart() {
     setAddedToCart(!addedToCart)
+    setTimeout(() => {
+      setAddedToCart(false)
+    }, 2000)
   }
 
   useEffect(() => {
@@ -64,7 +67,7 @@ const Index = () => {
             ''
           )}
           {addedToCart ? (
-            <div className="bg-yellow-300 rounded-lg absolute text-lg transition-opacity duration-500 ease-out w-auto flex items-center p-40 h-16">
+            <div className="bg-yellow-200 rounded-lg fixed text-lg flex items-center h-4 p-12">
               Added to cart!
             </div>
           ) : (
