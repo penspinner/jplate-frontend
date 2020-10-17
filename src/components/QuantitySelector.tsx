@@ -17,7 +17,7 @@ const QuantitySelector = (props: any) => {
   }
 
   return (
-    <div className="flex justify-around pt-1">
+    <div className="flex md:justify-around pt-1 pb-1">
       <div className="text-md">Quantity: </div>
       <select
         name="quantitySelector"

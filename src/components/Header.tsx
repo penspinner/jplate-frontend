@@ -38,8 +38,26 @@ const Header = (props: any) => {
   if (hamMenuShown) {
     return (
       <div className="flex flex-col border-b border-teal-500 h-full z-10 ">
-        <div className="ml-2">
-          <img src="/hamburger-menu.svg" style={{ height: '4rem' }} onClick={toggleHamburgerMenu} />
+        <div className="flex justify-around items-center">
+          <span>
+            <img
+              src="/hamburger-menu.svg"
+              style={{ height: '4rem' }}
+              onClick={toggleHamburgerMenu}
+            />
+          </span>
+          <span>
+            <img
+              id="headerCart"
+              style={{ height: '3rem' }}
+              className="hover:opacity-50"
+              src="https://image.flaticon.com/icons/svg/25/25619.svg"
+              onClick={() => {
+                props.handleShowCart()
+                toggleHamburgerMenu()
+              }}
+            />
+          </span>
         </div>
         <div className="flex flex-col h-full">
           <div className="bg-teal-200 h-56 flex flex-row items-center text-3xl p-5 border-b">
