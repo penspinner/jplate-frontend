@@ -35,7 +35,7 @@ const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) =
     return (
       <div
         id="cartContainer"
-        className="overflow-auto absolute bg-white h-3/4 w-5/7 border p-10 max-h-screen"
+        className="overflow-auto absolute bg-white w-5/7 border p-10 h-screen"
       >
         <div className="static top-2 pb-4 border-b flex justify-between border-teal-500">
           <div className="text-lg">Shopping cart</div>
