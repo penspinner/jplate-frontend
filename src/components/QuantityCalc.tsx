@@ -11,18 +11,18 @@ const QuantityCalc = (props: { quantity: any; onChange: any }) => {
         <button
           id="minus"
           type="button"
-          className="rounded hover:bg-teal-200 h-10 w-10"
+          className="rounded hover:bg-teal-200 h-8 w-8 "
           onClick={() => {
             setAmount(calculate(amount, 'minus'))
           }}
         >
           -
         </button>
-        <span className="inline-block border pl-3 pr-3 pt-2 pb-2 w-8">{amount}</span>
+        <span className="inline-block border w-8 pl-3">{amount}</span>
         <button
           id="add"
           type="button"
-          className="rounded hover:bg-teal-200 h-10 w-10"
+          className="rounded hover:bg-teal-200 h-8 w-8"
           onClick={() => {
             setAmount(calculate(amount, 'add'))
           }}
