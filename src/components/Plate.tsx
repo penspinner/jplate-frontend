@@ -29,8 +29,8 @@ const Plate = (props: any) => {
         <span className="flex justify-around items-center text-sm mt-2 mb-2">
           Price per unit: {`$${props.plate.price}`}
           <QuantityCalc quantity={amount} onChange={handleQuantityChange} />
-          <a
-            className="bg-teal-400 hover:bg-teal-600 rounded p-2 text-white"
+          <button
+            className="bg-teal-500 hover:bg-teal-200 rounded p-2 text-white"
             type="button"
             onClick={() => {
               handleAddToCart()
@@ -38,7 +38,7 @@ const Plate = (props: any) => {
             }}
           >
             Add to cart
-          </a>
+          </button>
         </span>
       </div>
     </div>
