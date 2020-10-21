@@ -11,6 +11,7 @@ import Cart from '../components/Cart'
 const Index = () => {
   const [cart, setCart] = useState([])
   const [showCart, setCartShow] = useState(false)
+  const [addedToCart, setAddedToCart] = useState(false)
 
   function handleShowCart() {
     setCartShow(!showCart)
@@ -18,6 +19,13 @@ const Index = () => {
 
   function handleSetCart(newCart: any) {
     setCart([...newCart])
+  }
+
+  function handleAddedToCart() {
+    setAddedToCart(!addedToCart)
+    setTimeout(() => {
+      setAddedToCart(false)
+    }, 2000)
   }
 
   useEffect(() => {
@@ -58,11 +66,24 @@ const Index = () => {
           ) : (
             ''
           )}
+          {addedToCart ? (
+            <div className="bg-yellow-200 rounded-lg fixed text-lg flex items-center h-4 p-12">
+              Added to cart!
+            </div>
+          ) : (
+            ''
+          )}
           {plates
             ? plates.map((plate: any) => {
                 return (
                   <div key={Math.random()} className="p-4">
-                    <Plate cart={cart} plate={plate} handleSetCart={handleSetCart} />
+                    <Plate
+                      cart={cart}
+                      plate={plate}
+                      handleSetCart={handleSetCart}
+                      handleAddedToCart={handleAddedToCart}
+                      addedToCart={addedToCart}
+                    />
                   </div>
                 )
               })

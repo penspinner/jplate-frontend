@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import QuantityCalc from './QuantityCalc'
 import { addToCart } from '../utils/utilsFunctions'
 
 const Plate = (props: any) => {
-  const [showItemDescription, setShowItemDescription] = useState(false)
   const [amount, setAmount] = useState(1)
+
+  const handleAddToCart = () => {
+    const newCart = addToCart(props.cart, props.plate, amount)
+    props.handleSetCart(newCart)
+  }
 
   function handleQuantityChange(num: any) {
     setAmount(num)
@@ -29,8 +33,8 @@ const Plate = (props: any) => {
             className="bg-teal-500 hover:bg-teal-200 rounded p-2 text-white"
             type="button"
             onClick={() => {
-              const newCart = addToCart(props.cart, props.plate, amount)
-              props.handleSetCart(newCart)
+              handleAddToCart()
+              props.handleAddedToCart(!props.addedToCart)
             }}
           >
             Add to cart
