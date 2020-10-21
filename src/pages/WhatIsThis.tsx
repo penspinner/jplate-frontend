@@ -1,8 +1,9 @@
 import React from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Cart from '../components/Cart'
 
-const WhatIsThis = () => {
+const WhatIsThis = (props) => {
   const technologyUsed = [
     'React Hooks JS',
     'Next JS',
@@ -12,10 +13,22 @@ const WhatIsThis = () => {
     'TypeScript',
     'Webpack',
   ]
+
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <Header cart={props.cart} handleShowCart={props.handleShowCart} />
       <div className="flex-col flex-wrap flex-grow items-center justify-center ">
+        <div className="flex justify-center">
+          {props.showCart ? (
+            <Cart
+              cart={props.cart}
+              handleSetCart={props.handleSetCart}
+              handleShowCart={props.handleShowCart}
+            />
+          ) : (
+            ''
+          )}
+        </div>
         <h1 className="text-center underline pb-8 pt-16">What is JPlate?</h1>
         <article className="text-center pb-4 pr-4 pl-4">
           JPlate is a mock online store that my team and I created to gain experience with the

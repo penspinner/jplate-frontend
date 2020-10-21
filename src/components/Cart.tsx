@@ -4,38 +4,16 @@ import Checkout from './Checkout'
 import OrderSubmitted from './OrderSubmitted'
 
 const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) => {
-  const [checkout, setCheckout] = useState(false)
-  const [orderSubmitted, setOrderSubmitted] = useState(false)
-  function handleShowCheckout() {
-    setCheckout(!checkout)
-  }
-
-  function handleOrderSubmitted() {
-    setOrderSubmitted(!orderSubmitted)
-  }
-
   let sum = 0
   props.cart.map((item: { price: number; userSelectedQuantity: number }) => {
     sum += item.price * item.userSelectedQuantity
   })
 
-  if (checkout) {
-    return (
-      <Checkout
-        cart={props.cart}
-        handleSetCart={props.handleSetCart}
-        sum={sum}
-        handleOrderSubmitted={handleOrderSubmitted}
-        handleShowCheckout={handleShowCheckout}
-      />
-    )
-  }
-
-  if (props.cart[0] && orderSubmitted === false) {
+  if (props.cart[0]) {
     return (
       <div
         id="cartContainer"
-        className="overflow-auto absolute bg-white h-3/4 w-5/7 border p-10 max-h-screen"
+        className="overflow-auto absolute bg-white h-3/4 w-5/7 border p-10 max-h-screen z-10"
       >
         <div className="static top-2 pb-4 border-b flex justify-between border-teal-500">
           <div className="text-lg">Shopping cart</div>
@@ -68,7 +46,6 @@ const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) =
             <button
               type="button"
               className="bg-blue-200 hover:bg-blue-400 p-3 m-1 rounded-lg"
-              onClick={handleShowCheckout}
               disabled
             >
               Proceed to checkout
@@ -77,8 +54,6 @@ const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) =
         </div>
       </div>
     )
-  } else if (orderSubmitted) {
-    return <OrderSubmitted handleOrderSubmitted={handleOrderSubmitted} />
   } else {
     return (
       <div className="absolute  bg-white h-1/2 w-2/3 border p-5">

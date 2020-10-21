@@ -8,26 +8,7 @@ import Plate from '../components/Plate'
 import plates from '../utils/productDummyData'
 import Cart from '../components/Cart'
 
-const Index = () => {
-  const [cart, setCart] = useState([])
-  const [showCart, setCartShow] = useState(false)
-  const [addedToCart, setAddedToCart] = useState(false)
-
-  function handleShowCart() {
-    setCartShow(!showCart)
-  }
-
-  function handleSetCart(newCart: any) {
-    setCart([...newCart])
-  }
-
-  function handleAddedToCart() {
-    setAddedToCart(!addedToCart)
-    setTimeout(() => {
-      setAddedToCart(false)
-    }, 2000)
-  }
-
+const Index = (props) => {
   useEffect(() => {
     let effectRan = false
 
@@ -59,14 +40,18 @@ const Index = () => {
         />
       </Head>
       <div className="min-h-screen flex flex-col">
-        <Header cart={cart} handleShowCart={handleShowCart} />
+        <Header cart={props.cart} handleShowCart={props.handleShowCart} />
         <div className="bg-teal-100 flex flex-wrap flex-grow justify-evenly pt-4">
-          {showCart ? (
-            <Cart cart={cart} handleSetCart={handleSetCart} handleShowCart={handleShowCart} />
+          {props.showCart ? (
+            <Cart
+              cart={props.cart}
+              handleSetCart={props.handleSetCart}
+              handleShowCart={props.handleShowCart}
+            />
           ) : (
             ''
           )}
-          {addedToCart ? (
+          {props.addedToCart ? (
             <div className="bg-yellow-200 rounded-lg fixed text-lg flex items-center h-4 p-12">
               Added to cart!
             </div>
@@ -78,11 +63,11 @@ const Index = () => {
                 return (
                   <div key={Math.random()} className="p-4">
                     <Plate
-                      cart={cart}
+                      cart={props.cart}
                       plate={plate}
-                      handleSetCart={handleSetCart}
-                      handleAddedToCart={handleAddedToCart}
-                      addedToCart={addedToCart}
+                      handleSetCart={props.handleSetCart}
+                      handleAddedToCart={props.handleAddedToCart}
+                      addedToCart={props.addedToCart}
                     />
                   </div>
                 )
