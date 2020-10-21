@@ -53,10 +53,13 @@ const Header = (props: any) => {
               className="hover:opacity-50"
               src="https://image.flaticon.com/icons/svg/25/25619.svg"
               onClick={() => {
-                props.handleShowCart()
                 toggleHamburgerMenu()
+                props.handleShowCart()
               }}
             />
+            <div className="flex items-center justify-center w-6 bg-yellow-300 rounded-lg transition-all duration-500 ease-in-out">
+              {sum >= 1 ? sum : ''}
+            </div>
           </span>
         </div>
         <div className="flex flex-col h-full">

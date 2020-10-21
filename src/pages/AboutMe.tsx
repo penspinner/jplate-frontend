@@ -1,11 +1,23 @@
 import React from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Cart from '../components/Cart'
 
-const About = () => {
+const About = (props) => {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <Header cart={props.cart} handleShowCart={props.handleShowCart} />
+      <div className="flex justify-center">
+        {props.showCart ? (
+          <Cart
+            cart={props.cart}
+            handleSetCart={props.handleSetCart}
+            handleShowCart={props.handleShowCart}
+          />
+        ) : (
+          ''
+        )}
+      </div>
       <div className="flex flex-wrap flex-grow items-center justify-center">
         <div className="sm: w-full lg:w-1/2 text-center ">
           <h1 className=" text-center font-bold text-2xl pb-5 underline ">About me</h1>
