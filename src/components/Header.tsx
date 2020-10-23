@@ -1,10 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Link from 'next/link'
-import { AuthContext } from '../pages/_app'
 
 const Header = (props: any) => {
-  const [auth, setAuth] = useContext(AuthContext)
-  const [cookie, setCookie] = useState(null)
   const [hamMenuShown, setShowHam] = useState(false)
   const [stateWindow, setWindow] = useState({})
 
@@ -25,15 +22,8 @@ const Header = (props: any) => {
     }
   }
 
-  // function handleSignOut() {
-  //   setAuth(false)
-  //   window.localStorage.removeItem('cookie')
-  //   location.reload()
-  // }
-
   useEffect(() => {
     setWindow(window)
-    setCookie(window.localStorage.cookie)
   }, [])
   if (hamMenuShown) {
     return (

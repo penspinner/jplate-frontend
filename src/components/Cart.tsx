@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
+import Link from 'next/link'
 import CartItem from './CartItem'
-import Checkout from './Checkout'
-import OrderSubmitted from './OrderSubmitted'
 
 const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) => {
   let sum = 0
@@ -48,7 +47,7 @@ const Cart = (props: { cart: any[]; handleSetCart: any; handleShowCart: any }) =
               className="bg-blue-200 hover:bg-blue-400 p-3 m-1 rounded-lg"
               disabled
             >
-              Proceed to checkout
+              <Link href="/Checkout">Proceed to Checkout</Link>
             </button>
           </div>
         </div>
